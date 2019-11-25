@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/anuncio")
 public class AnuncioProdutoService {
+	
 			
 	private static final AnuncioProdutoDTO[] Anuncio = new AnuncioProdutoDTO[] {
 			new AnuncioProdutoDTO(1, "teclado azulado", 2.5, 10, "Periféricos", "Real", "fedex", "Top do top do top","nao é putaria"),
