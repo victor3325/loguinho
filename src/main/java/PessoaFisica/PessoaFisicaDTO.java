@@ -5,7 +5,7 @@ import Usuario.UsuarioEntity;
 
 public class PessoaFisicaDTO {
 	
-	public static final PessoaFisicaDTO NULL_VALUE = new PessoaFisicaDTO(Long.valueOf(0), "", "", "", "", "",null);
+	public static final PessoaFisicaDTO NULL_VALUE = new PessoaFisicaDTO(Long.valueOf(0), "", "", "", "", "",null,null);
 	
 	private final long id;	
 	private final String nome;

@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import Endereco.EnderecoEntity;
+import Usuario.UsuarioEntity;
 
 @Entity
 @Table(name = "PessoaFisica")
@@ -30,8 +31,10 @@ public class PfisicaEntity {
 	private String celular;
 	@OneToOne
 	private EnderecoEntity endereco;
+	@OneToOne
+	private UsuarioEntity usuario;
 	public PfisicaEntity(long id, String nome, String sobrenome, String cpf, String telefone, String celular,
-			EnderecoEntity endereco) {
+			EnderecoEntity endereco, UsuarioEntity usuario) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -40,6 +43,7 @@ public class PfisicaEntity {
 		this.telefone = telefone;
 		this.celular = celular;
 		this.endereco = endereco;
+		this.usuario = usuario;
 	}
 	public long getId() {
 		return id;
@@ -83,6 +87,11 @@ public class PfisicaEntity {
 	public void setEndereco(EnderecoEntity endereco) {
 		this.endereco = endereco;
 	}
-	
+	public UsuarioEntity getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(UsuarioEntity usuario) {
+		this.usuario = usuario;
+	}
 	
 }

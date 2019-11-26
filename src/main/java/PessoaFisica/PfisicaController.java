@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Controller;
 
 import Endereco.EnderecoEntity;
+import Usuario.UsuarioEntity;
 
 @Controller
 final class PfisicaController {
@@ -24,6 +25,7 @@ final class PfisicaController {
 		pfEntity.setTelefone(pfDTO.getTelefone());
 		pfEntity.setCelular(pfDTO.getCelular());
 		pfEntity.setEndereco(pfDTO.getEndereco());
+		pfEntity.setUsuario(pfDTO.getUsuario());
 
 	}
 	
@@ -36,8 +38,9 @@ final class PfisicaController {
 		final String telefone = pfDTO.getTelefone();
 		final String celular = pfDTO.getCelular();
 		final EnderecoEntity endereco = pfDTO.getEndereco();
+		final UsuarioEntity usuario = pfDTO.getUsuario();
 
-		return new PfisicaEntity(id, cpf, nome, sobrenome, telefone, celular, endereco);
+		return new PfisicaEntity(id, cpf, nome, sobrenome, telefone, celular, endereco,usuario);
 	}
 	
 	private static PessoaFisicaDTO toDTO(final PfisicaEntity pfEntity) {
@@ -49,8 +52,8 @@ final class PfisicaController {
 		final String telefone = pfEntity.getTelefone();
 		final String celular = pfEntity.getCelular();
 		final EnderecoEntity endereco = pfEntity.getEndereco();
-
-		return new PessoaFisicaDTO(id, cpf, nome, sobrenome, telefone, celular, endereco);
+		final UsuarioEntity usuario = pfEntity.getUsuario();
+		return new PessoaFisicaDTO(id, cpf, nome, sobrenome, telefone, celular, endereco,usuario);
 		
 	}
 	

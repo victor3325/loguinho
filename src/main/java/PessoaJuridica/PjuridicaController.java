@@ -49,7 +49,7 @@ public class PjuridicaController {
 		final String celular = pjEntity.getCelular();
 		final EnderecoEntity endereco = pjEntity.getEndereco();
 		final UsuarioEntity usuario = pjEntity.getUsuario();
-		return new PessoaJuridicaDTO(id, nome, responsavel, cnpj, telefone, celular, endereco,usuario);
+		return new PessoaJuridicaDTO(id, nome, responsavel, cnpj, telefone, celular, endereco, usuario);
 	}
 
 	/*private boolean isNotExistsProductByIdentifier(final Long id) {

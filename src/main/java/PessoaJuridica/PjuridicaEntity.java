@@ -18,7 +18,6 @@ public class PjuridicaEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private long id;	
 	@Column
 	private String nome;

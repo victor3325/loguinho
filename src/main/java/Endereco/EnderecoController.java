@@ -6,9 +6,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
-import Anuncio.AnuncioProdutoEntity;
-import PessoaFisica.PfisicaEntity;
-import PessoaJuridica.PjuridicaEntity;
 
 @Controller
 public class EnderecoController {

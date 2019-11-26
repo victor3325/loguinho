@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class PjuridicaService{
 	
 	private static final PessoaJuridicaDTO [] Pj = new PessoaJuridicaDTO[]{
-		new PessoaJuridicaDTO(1, "nome", "responsavel", "cnpj", "telefone", "celular", null,null),
-		new PessoaJuridicaDTO(2, "nome", "responsavel", "cnpj", "telefone", "celular", null,null),
+		new PessoaJuridicaDTO(1, "nome", "responsavel", "cnpj", "telefone", "celular", null, null),
+		new PessoaJuridicaDTO(2, "nome", "responsavel", "cnpj", "telefone", "celular", null, null)
 	};
 	
     private final PjuridicaController pjController;
