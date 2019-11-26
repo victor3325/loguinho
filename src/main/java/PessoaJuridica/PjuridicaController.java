@@ -6,6 +6,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
+import Endereco.EnderecoEntity;
+import Usuario.UsuarioEntity;
+
 @Controller
 public class PjuridicaController {
 	private final PjuridicaRepository pjRepository;
@@ -19,13 +22,9 @@ public class PjuridicaController {
 		pjEntity.setNome(pjDTO.getNome());
 		pjEntity.setResponsavel(pjDTO.getResponsavel());
 		pjEntity.setTelefone(pjDTO.getTelefone());
-		pjEntity.setPais(pjDTO.getPais());
-		pjEntity.setEstado(pjDTO.getEstado());
-		pjEntity.setCidade(pjDTO.getCidade());
-		pjEntity.setBairro(pjDTO.getBairro());
-		pjEntity.setRua(pjDTO.getRua());
-		pjEntity.setCelular(pjDTO.getCelular());
-		pjEntity.setCep(pjDTO.getCep());
+		pjEntity.setEndereco(pjDTO.getEndereco());
+		pjEntity.setUsuario(pjDTO.getUsuario());
+	
 	
 	}
 
@@ -36,13 +35,9 @@ public class PjuridicaController {
 		final String cnpj = pjDTO.getCnpj();
 		final String telefone = pjDTO.getTelefone();
 		final String celular = pjDTO.getCelular();
-		final String pais = pjDTO.getPais();
-		final String estado = pjDTO.getEstado();
-		final String cidade = pjDTO.getCidade();
-		final String bairro = pjDTO.getBairro();
-		final String rua = pjDTO.getRua();
-		final String cep = pjDTO.getCep();
-		return new PjuridicaEntity(id, nome, responsavel, cnpj, telefone, celular, pais, estado, cidade, bairro, rua, cep);
+		final EnderecoEntity endereco = pjDTO.getEndereco();
+		final UsuarioEntity usuario =pjDTO.getUsuario();
+		return new PjuridicaEntity(id, nome, responsavel, cnpj, telefone, celular,endereco,usuario);
 	}
 
 	private static PessoaJuridicaDTO toDTO(final PjuridicaEntity pjEntity) {
@@ -52,13 +47,9 @@ public class PjuridicaController {
 		final String cnpj = pjEntity.getCnpj();
 		final String telefone = pjEntity.getTelefone();
 		final String celular = pjEntity.getCelular();
-		final String pais = pjEntity.getPais();
-		final String estado = pjEntity.getEstado();
-		final String cidade = pjEntity.getCidade();
-		final String bairro = pjEntity.getBairro();
-		final String rua = pjEntity.getRua();
-		final String cep = pjEntity.getCep();
-		return new PessoaJuridicaDTO(id, nome, responsavel, cnpj, telefone, celular, pais, estado, cidade, bairro, rua, cep);
+		final EnderecoEntity endereco = pjEntity.getEndereco();
+		final UsuarioEntity usuario = pjEntity.getUsuario();
+		return new PessoaJuridicaDTO(id, nome, responsavel, cnpj, telefone, celular, endereco,usuario);
 	}
 
 	/*private boolean isNotExistsProductByIdentifier(final Long id) {

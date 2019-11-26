@@ -1,6 +1,5 @@
 package Usuario;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +10,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Usuario")
-final class UsuarioEntity implements Serializable {
-	private static final long serialVersionUID = 4391164751402917205L;
+public class UsuarioEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
 	private String login;

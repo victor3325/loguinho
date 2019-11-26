@@ -6,6 +6,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
+import Endereco.EnderecoEntity;
+
 
 @Controller
 public class AnuncioProdutoController {
@@ -26,6 +28,8 @@ public class AnuncioProdutoController {
 		anuncioEntity.setDescricao(anuncioDTO.getDescricao());
 		anuncioEntity.setEntrega(anuncioDTO.getEntrega());
 		anuncioEntity.setImagem_produto(anuncioDTO.getImagem_produto());
+		anuncioEntity.setEndereco(anuncioDTO.getEndereco());
+		
 	
 	}
 
@@ -39,7 +43,9 @@ public class AnuncioProdutoController {
 	    final String entrega = anuncioDTO.getEntrega();
 	    final String descricao = anuncioDTO.getDescricao();
 	    final String imagem_produto = anuncioDTO.getImagem_produto();
-		return new AnuncioProdutoEntity(id, nome, preco_unit, quantidade, categoria, moeda, entrega, descricao, imagem_produto);
+	    final EnderecoEntity endereco =anuncioDTO.getEndereco();
+	    
+		return new AnuncioProdutoEntity(id, nome, preco_unit, quantidade, categoria, moeda, entrega, descricao, imagem_produto,endereco);
 	}
 
 	private static AnuncioProdutoDTO toDTO(final AnuncioProdutoEntity anuncioEntity) {
@@ -52,7 +58,9 @@ public class AnuncioProdutoController {
 	    final String entrega = anuncioEntity.getEntrega();
 	    final String descricao = anuncioEntity.getDescricao();
 	    final String imagem_produto = anuncioEntity.getImagem_produto();
-		return new AnuncioProdutoDTO(id, nome, preco_unit, quantidade, categoria, moeda, entrega, descricao, imagem_produto);
+	    final EnderecoEntity endereco = anuncioEntity.getEndereco();
+		return new AnuncioProdutoDTO(id, nome, preco_unit, quantidade, categoria, moeda, entrega, descricao, imagem_produto,endereco);
+		
 	}
 
 	/*private boolean isNotExistsProductByIdentifier(final Long id) {

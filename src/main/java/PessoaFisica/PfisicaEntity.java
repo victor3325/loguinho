@@ -1,21 +1,22 @@
 package PessoaFisica;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import Endereco.EnderecoEntity;
 
 @Entity
 @Table(name = "PessoaFisica")
-final class PfisicaEntity implements Serializable {
-	private static final long serialVersionUID = 4391164751402917205L;
+public class PfisicaEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;	
 	@Column
 	private String nome;
@@ -27,22 +28,10 @@ final class PfisicaEntity implements Serializable {
 	private String telefone;
 	@Column
 	private String celular;
-	@Column
-	private String pais;
-	@Column
-	private String estado;
-	@Column
-	private String cidade;
-	@Column
-	private String bairro;
-	@Column
-	private String rua;
-	@Column
-	private String cep;
-	
-	
+	@OneToOne
+	private EnderecoEntity endereco;
 	public PfisicaEntity(long id, String nome, String sobrenome, String cpf, String telefone, String celular,
-			String pais, String estado, String cidade, String bairro, String rua, String cep) {
+			EnderecoEntity endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -50,14 +39,8 @@ final class PfisicaEntity implements Serializable {
 		this.cpf = cpf;
 		this.telefone = telefone;
 		this.celular = celular;
-		this.pais = pais;
-		this.estado = estado;
-		this.cidade = cidade;
-		this.bairro = bairro;
-		this.rua = rua;
-		this.cep = cep;
+		this.endereco = endereco;
 	}
-	
 	public long getId() {
 		return id;
 	}
@@ -94,56 +77,12 @@ final class PfisicaEntity implements Serializable {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	public String getPais() {
-		return pais;
+	public EnderecoEntity getEndereco() {
+		return endereco;
 	}
-	public String getEstado() {
-		return estado;
+	public void setEndereco(EnderecoEntity endereco) {
+		this.endereco = endereco;
 	}
-	public String getCidade() {
-		return cidade;
-	}
-	public String getBairro() {
-		return bairro;
-	}
-	public String getRua() {
-		return rua;
-	}
-	public String getCep() {
-		return cep;
-		
-	}
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	@Override
-	public String toString() {
-		return "PfisicaEntity [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf
-				+ ", telefone=" + telefone + ", celular=" + celular + ", pais=" + pais + ", estado=" + estado
-				+ ", cidade=" + cidade + ", bairro=" + bairro + ", rua=" + rua + ", cep=" + cep + "]";
-	}
-
 	
-
+	
 }

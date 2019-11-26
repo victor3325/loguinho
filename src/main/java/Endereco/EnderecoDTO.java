@@ -1,5 +1,6 @@
 package Endereco;
 
+
 public class EnderecoDTO {
 	
 	public static final EnderecoDTO NULL_VALUE = new EnderecoDTO(Long.valueOf(0), "", "", "", "", "", "");
@@ -11,7 +12,6 @@ public class EnderecoDTO {
 	private final String bairro;
 	private final String rua;
 	private final String cep;
-		
 	public EnderecoDTO(long id, String pais, String estado, String cidade, String bairro, String rua, String cep) {
 		super();
 		this.id = id;
@@ -22,7 +22,9 @@ public class EnderecoDTO {
 		this.rua = rua;
 		this.cep = cep;
 	}
-	
+	public static EnderecoDTO getNullValue() {
+		return NULL_VALUE;
+	}
 	public long getId() {
 		return id;
 	}
@@ -44,6 +46,7 @@ public class EnderecoDTO {
 	public String getCep() {
 		return cep;
 	}
+
 	
-	
+
 }

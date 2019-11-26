@@ -6,6 +6,10 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
+import Anuncio.AnuncioProdutoEntity;
+import PessoaFisica.PfisicaEntity;
+import PessoaJuridica.PjuridicaEntity;
+
 @Controller
 public class EnderecoController {
 	
@@ -24,6 +28,8 @@ public class EnderecoController {
 		enderecoEntity.setBairro(enderecoDTO.getBairro());
 		enderecoEntity.setRua(enderecoDTO.getRua());
 		enderecoEntity.setCep(enderecoDTO.getCep());
+		
+		
 	}
 
 	private static EnderecoEntity toEntity(final EnderecoDTO enderecoDTO) {

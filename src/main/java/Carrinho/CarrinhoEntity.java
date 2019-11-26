@@ -1,6 +1,6 @@
 package Carrinho;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +11,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Carrinho")
-final class CarrinhoEntity implements Serializable{
-	private static final long serialVersionUID = 4391164751402917205L;
+public class CarrinhoEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
 	private double valor_unitario;

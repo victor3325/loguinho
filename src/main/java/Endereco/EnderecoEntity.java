@@ -1,20 +1,25 @@
 package Endereco;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
+import Anuncio.AnuncioProdutoEntity;
+import PessoaFisica.PfisicaEntity;
+import PessoaJuridica.PjuridicaEntity;
 
 @Entity
 @Table(name="Endereco")
-final class EnderecoEntity implements Serializable {
-	private static final long serialVersionUID = 4391164751402917205L;
+public class EnderecoEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
 	private String pais;
@@ -28,7 +33,6 @@ final class EnderecoEntity implements Serializable {
 	private String rua;
 	@Column
 	private String cep;
-	
 	public EnderecoEntity(long id, String pais, String estado, String cidade, String bairro, String rua, String cep) {
 		super();
 		this.id = id;
@@ -39,7 +43,6 @@ final class EnderecoEntity implements Serializable {
 		this.rua = rua;
 		this.cep = cep;
 	}
-	
 	public long getId() {
 		return id;
 	}
@@ -82,12 +85,8 @@ final class EnderecoEntity implements Serializable {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
+	
+	
 
-	@Override
-	public String toString() {
-		return "EnderecoEntity [id=" + id + ", pais=" + pais + ", estado=" + estado + ", cidade=" + cidade + ", bairro="
-				+ bairro + ", rua=" + rua + ", cep=" + cep + "]";
-	}
-		
 	
 }

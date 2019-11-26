@@ -1,21 +1,23 @@
 package Anuncio;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import Endereco.EnderecoEntity;
 
 @Entity
 @Table(name = "Anuncio")
-final class AnuncioProdutoEntity implements Serializable {
-	private static final long serialVersionUID = 4391164751402917205L;
+public class AnuncioProdutoEntity  {
+	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column
 	private String nome;
@@ -33,8 +35,10 @@ final class AnuncioProdutoEntity implements Serializable {
     private String descricao;
 	@Column
     private String imagem_produto;
+	@OneToOne
+	private EnderecoEntity endereco;
 	public AnuncioProdutoEntity(long id, String nome, double preco_unit, int quantidade, String categoria, String moeda,
-			String entrega, String descricao, String imagem_produto) {
+			String entrega, String descricao, String imagem_produto, EnderecoEntity endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -45,6 +49,7 @@ final class AnuncioProdutoEntity implements Serializable {
 		this.entrega = entrega;
 		this.descricao = descricao;
 		this.imagem_produto = imagem_produto;
+		this.endereco = endereco;
 	}
 	public long getId() {
 		return id;
@@ -100,9 +105,12 @@ final class AnuncioProdutoEntity implements Serializable {
 	public void setImagem_produto(String imagem_produto) {
 		this.imagem_produto = imagem_produto;
 	}
+	public EnderecoEntity getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(EnderecoEntity endereco) {
+		this.endereco = endereco;
+	}
 	
-	
-
-
 	
 }

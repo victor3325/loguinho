@@ -6,6 +6,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
+import Endereco.EnderecoEntity;
+
 @Controller
 final class PfisicaController {
 
@@ -20,13 +22,8 @@ final class PfisicaController {
 		pfEntity.setNome(pfDTO.getNome());
 		pfEntity.setSobrenome(pfDTO.getSobrenome());
 		pfEntity.setTelefone(pfDTO.getTelefone());
-		pfEntity.setPais(pfDTO.getPais());
-		pfEntity.setEstado(pfDTO.getEstado());
-		pfEntity.setCidade(pfDTO.getCidade());
-		pfEntity.setBairro(pfDTO.getBairro());
-		pfEntity.setRua(pfDTO.getRua());
 		pfEntity.setCelular(pfDTO.getCelular());
-		pfEntity.setCep(pfDTO.getCep());
+		pfEntity.setEndereco(pfDTO.getEndereco());
 
 	}
 	
@@ -38,14 +35,9 @@ final class PfisicaController {
 		final String sobrenome = pfDTO.getSobrenome();
 		final String telefone = pfDTO.getTelefone();
 		final String celular = pfDTO.getCelular();
-		final String pais = pfDTO.getPais();
-		final String estado = pfDTO.getEstado();
-		final String cidade = pfDTO.getCidade();
-		final String bairro = pfDTO.getBairro();
-		final String rua = pfDTO.getRua();
-		final String cep = pfDTO.getCep();
+		final EnderecoEntity endereco = pfDTO.getEndereco();
 
-		return new PfisicaEntity(id, cpf, nome, sobrenome, telefone, celular, pais,estado,cidade,bairro,rua,cep);
+		return new PfisicaEntity(id, cpf, nome, sobrenome, telefone, celular, endereco);
 	}
 	
 	private static PessoaFisicaDTO toDTO(final PfisicaEntity pfEntity) {
@@ -56,14 +48,9 @@ final class PfisicaController {
 		final String sobrenome = pfEntity.getSobrenome();
 		final String telefone = pfEntity.getTelefone();
 		final String celular = pfEntity.getCelular();
-		final String pais = pfEntity.getPais();
-		final String estado = pfEntity.getEstado();
-		final String cidade = pfEntity.getCidade();
-		final String bairro = pfEntity.getBairro();
-		final String rua = pfEntity.getRua();
-		final String cep = pfEntity.getCep();
-		
-		return new PessoaFisicaDTO(id, nome, sobrenome, cpf, telefone, celular, pais, estado, cidade, bairro, rua, cep);
+		final EnderecoEntity endereco = pfEntity.getEndereco();
+
+		return new PessoaFisicaDTO(id, cpf, nome, sobrenome, telefone, celular, endereco);
 		
 	}
 	

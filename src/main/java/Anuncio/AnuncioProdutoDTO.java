@@ -1,8 +1,10 @@
 package Anuncio;
 
+import Endereco.EnderecoEntity;
+
 public class AnuncioProdutoDTO {
 		
-	public static final AnuncioProdutoDTO NULL_VALUE = new AnuncioProdutoDTO(Long.valueOf(0), "", Double.valueOf(0.0), Integer.valueOf(0),"", "", "", "", "");
+	public static final AnuncioProdutoDTO NULL_VALUE = new AnuncioProdutoDTO(Long.valueOf(0), "", Double.valueOf(0.0), Integer.valueOf(0),"", "", "", "", "",null);
 	
 		private final long id;
 		private final String nome;
@@ -13,8 +15,9 @@ public class AnuncioProdutoDTO {
 	    private final String entrega;
 	    private final String descricao;
 	    private final String imagem_produto;
+	    private final EnderecoEntity endereco;
 		public AnuncioProdutoDTO(long id, String nome, double preco_unit, int quantidade, String categoria,
-				String moeda, String entrega, String descricao, String imagem_produto) {
+				String moeda, String entrega, String descricao, String imagem_produto, EnderecoEntity endereco) {
 			super();
 			this.id = id;
 			this.nome = nome;
@@ -25,6 +28,7 @@ public class AnuncioProdutoDTO {
 			this.entrega = entrega;
 			this.descricao = descricao;
 			this.imagem_produto = imagem_produto;
+			this.endereco = endereco;
 		}
 		public static AnuncioProdutoDTO getNullValue() {
 			return NULL_VALUE;
@@ -56,7 +60,8 @@ public class AnuncioProdutoDTO {
 		public String getImagem_produto() {
 			return imagem_produto;
 		}
-	    
-		
-	    
+		public EnderecoEntity getEndereco() {
+			return endereco;
+		}
+		    
 }
