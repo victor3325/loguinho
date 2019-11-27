@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioService {
 
 	private static final UsuarioDTO[] Usuario = new UsuarioDTO[] {
-			new UsuarioDTO(1, "login", "email", "senha"),
-			new UsuarioDTO(2, "login2", "email2", "senha2")
 	};
 	
 	private final UsuarioController usuarioController;

@@ -21,8 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PfisicaService {
 	
 	private static final PessoaFisicaDTO [] Pf = new PessoaFisicaDTO[]{
-			new PessoaFisicaDTO(1, "Pedro", "Heifler", "99999999999", "4799999999", "47988888888",null , null),
-			new PessoaFisicaDTO(2, "Miguel", "Zimm", "78945613285", "4788888888", "47977777777",null, null)
+			
 	};
 
 	private final PfisicaController pfController;

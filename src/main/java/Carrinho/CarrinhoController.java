@@ -6,6 +6,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
+import Anuncio.AnuncioProdutoEntity;
+
 @Controller
 final class CarrinhoController {
 
@@ -18,16 +20,18 @@ final class CarrinhoController {
 	private static void updateEntityFromDTO(final CarrinhoDTO carrinhoDTO, final CarrinhoEntity carrinhoEntity) {
 		carrinhoEntity.setId(carrinhoDTO.getId());;
 		carrinhoEntity.setValor_unitario(carrinhoDTO.getValor_unitario());
-		carrinhoEntity.setValor_frete(carrinhoDTO.getvalor_Frete());
+		carrinhoEntity.setValor_frete(carrinhoDTO.getValor_frete());
 		carrinhoEntity.setTotal_pedido(carrinhoDTO.getTotal_pedido());
+		carrinhoEntity.setProduto(carrinhoDTO.getProduto());
 	}
 
 	private static CarrinhoEntity toEntity(final CarrinhoDTO carrinhoDTO) {
 		final long id = carrinhoDTO.getId();
 		final double valor_unitario = carrinhoDTO.getValor_unitario();
-		final double valor_frete = carrinhoDTO.getvalor_Frete();
+		final double valor_frete = carrinhoDTO.getValor_frete();
 		final double total_pedido = carrinhoDTO.getTotal_pedido();
-		return new CarrinhoEntity(id, valor_unitario,valor_frete, total_pedido);
+		final AnuncioProdutoEntity produto = carrinhoDTO.getProduto();
+		return new CarrinhoEntity(id, valor_unitario,valor_frete, total_pedido,produto);
 	}
 
 	private static CarrinhoDTO toDTO(final CarrinhoEntity carrinhoEntity) {
@@ -36,7 +40,8 @@ final class CarrinhoController {
 		final double valor_unitario = carrinhoEntity.getValor_unitario();
 		final double valor_frete = carrinhoEntity.getValor_frete();
 		final double total_pedido = carrinhoEntity.getTotal_pedido();
-		return new CarrinhoDTO(id,valor_unitario, valor_frete, total_pedido);
+		final AnuncioProdutoEntity produto = carrinhoEntity.getProduto();
+		return new CarrinhoDTO(id,valor_unitario, valor_frete, total_pedido, produto);
 	}
 
 	/*private boolean isNotExistsProductByIdentifier(final Long id) {

@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class EnderecoService {
 	
 	private static final EnderecoDTO[] Endereco = new EnderecoDTO[] {
-			new EnderecoDTO(1, "pais", "estado", "cidade", "bairro", "rua", "cep"),
-			new EnderecoDTO(2, "pais2", "estado2", "cidade2", "bairro2", "rua2", "cep2")
 	};
 	
 	private final EnderecoController enderecoController;
