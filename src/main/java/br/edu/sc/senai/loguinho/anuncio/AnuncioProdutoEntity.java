@@ -6,10 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import br.edu.sc.senai.loguinho.endereco.EnderecoEntity;
 
 @Entity
 @Table(name = "Anuncio")
@@ -35,14 +32,12 @@ public class AnuncioProdutoEntity  {
     private String descricao;
 	@Column
     private String imagem_produto;
-	@OneToOne
-	private EnderecoEntity endereco;
-	
+		
 	protected AnuncioProdutoEntity(){
 		
 	}
 	public AnuncioProdutoEntity(long id, String nome, double preco_unit, int quantidade, String categoria, String moeda,
-			String entrega, String descricao, String imagem_produto, EnderecoEntity endereco) {
+			String entrega, String descricao, String imagem_produto) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -53,7 +48,6 @@ public class AnuncioProdutoEntity  {
 		this.entrega = entrega;
 		this.descricao = descricao;
 		this.imagem_produto = imagem_produto;
-		this.endereco = endereco;
 	}
 	public long getId() {
 		return id;
@@ -108,12 +102,6 @@ public class AnuncioProdutoEntity  {
 	}
 	public void setImagem_produto(String imagem_produto) {
 		this.imagem_produto = imagem_produto;
-	}
-	public EnderecoEntity getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(EnderecoEntity endereco) {
-		this.endereco = endereco;
 	}
 	
 	
