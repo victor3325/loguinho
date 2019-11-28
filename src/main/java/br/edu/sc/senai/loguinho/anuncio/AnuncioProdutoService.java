@@ -29,7 +29,7 @@ public class AnuncioProdutoService {
 		Arrays.asList(AnuncioProdutoService.Anuncio).forEach(dto ->this.anuncioController.insertProduto(dto));
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/lista")
 	public java.util.List<AnuncioProdutoDTO> list(){
 		return this.anuncioController.getAllProduto();
 	}

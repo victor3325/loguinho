@@ -27,7 +27,7 @@ public class UsuarioService {
 		Arrays.asList(UsuarioService.Usuario).forEach(dto ->this.usuarioController.insertUsuario(dto));
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/lista")
 	public java.util.List<UsuarioDTO> list(){
 		return this.usuarioController.getAllUsuario();
 	}
@@ -41,7 +41,7 @@ public class UsuarioService {
 			return new ResponseEntity<>(usuarioDTO,HttpStatus.OK);
 		}
 	
-	@DeleteMapping("/deletar")
+	@DeleteMapping("/deletar{id}")
 	public ResponseEntity<UsuarioDTO> removeUsuario (@PathVariable final Long id){
 		final UsuarioDTO removedUsuario = this.usuarioController.removeUsuario(id);
 		if(removedUsuario.equals(UsuarioDTO.NULL_VALUE)) {
