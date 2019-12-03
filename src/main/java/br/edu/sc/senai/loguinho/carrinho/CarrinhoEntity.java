@@ -25,6 +25,8 @@ public class CarrinhoEntity {
 	private double valor_frete;
 	@Column
 	private double total_pedido;
+	@Column
+	private int quantidade;
 	@OneToOne
 	private AnuncioProdutoEntity produto;
 	
@@ -32,15 +34,17 @@ public class CarrinhoEntity {
 		
 	}
 	
-	public CarrinhoEntity(long id, double valor_unitario, double valor_frete, double total_pedido,
+	public CarrinhoEntity(long id, double valor_unitario, double valor_frete, double total_pedido, int quantidade,
 			AnuncioProdutoEntity produto) {
 		super();
 		this.id = id;
 		this.valor_unitario = valor_unitario;
 		this.valor_frete = valor_frete;
 		this.total_pedido = total_pedido;
+		this.quantidade = quantidade;
 		this.produto = produto;
 	}
+
 	public long getId() {
 		return id;
 	}
@@ -71,8 +75,14 @@ public class CarrinhoEntity {
 	public void setProduto(AnuncioProdutoEntity produto) {
 		this.produto = produto;
 	}
-	
-	
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 }
 
 

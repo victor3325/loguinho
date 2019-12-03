@@ -34,16 +34,14 @@ public class AnuncioProdutoService {
 		return this.anuncioController.getAllProduto();
 	}
 		
-	@GetMapping("/{id}/details") 
+	@GetMapping("/{id}/detalhes") 
 	public ResponseEntity<AnuncioProdutoDTO> getProduto (@PathVariable final Long id){
 		final AnuncioProdutoDTO anuncioDTO = this.anuncioController.getProduto(id);
-		if(anuncioDTO.equals(AnuncioProdutoDTO.NULL_VALUE)){
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		
 			return new ResponseEntity<>(anuncioDTO,HttpStatus.OK);
 		}
 	
-	@DeleteMapping("/deletar")
+	@DeleteMapping("/deletar/{id}")
 	public ResponseEntity<AnuncioProdutoDTO> removeProduto (@PathVariable final Long id){
 		final AnuncioProdutoDTO removedProduto = this.anuncioController.removeProdutoDTO(id);
 		if(removedProduto.equals(AnuncioProdutoDTO.NULL_VALUE)) {

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CarrinhoService {
 
 	private static final CarrinhoDTO [] Carr = new CarrinhoDTO[] {
+		
 	};
 	
 	private final CarrinhoController carrinhoController;
