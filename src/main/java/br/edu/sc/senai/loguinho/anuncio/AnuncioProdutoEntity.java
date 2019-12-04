@@ -2,13 +2,18 @@ package br.edu.sc.senai.loguinho.anuncio;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import br.edu.sc.senai.loguinho.pessoa.PessoaDTO;
+import br.edu.sc.senai.loguinho.pessoa.PessoaEntity;
 
 @Entity
 @Table(name = "Anuncio")
@@ -31,17 +36,15 @@ public class AnuncioProdutoEntity implements Serializable{
 	@Column
     private String moeda;
 	@Column
-    private String entrega;
-	@Column
     private String descricao;
 	@Column
     private String imagem_produto;
-		
+			
 	protected AnuncioProdutoEntity(){
 		
 	}
 	public AnuncioProdutoEntity(long id, String nome, double preco_unit, int quantidade, String categoria, String moeda,
-			String entrega, String descricao, String imagem_produto) {
+			 String descricao, String imagem_produto) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -49,7 +52,7 @@ public class AnuncioProdutoEntity implements Serializable{
 		this.quantidade = quantidade;
 		this.categoria = categoria;
 		this.moeda = moeda;
-		this.entrega = entrega;
+		
 		this.descricao = descricao;
 		this.imagem_produto = imagem_produto;
 	}
@@ -89,12 +92,7 @@ public class AnuncioProdutoEntity implements Serializable{
 	public void setMoeda(String moeda) {
 		this.moeda = moeda;
 	}
-	public String getEntrega() {
-		return entrega;
-	}
-	public void setEntrega(String entrega) {
-		this.entrega = entrega;
-	}
+	
 	public String getDescricao() {
 		return descricao;
 	}
