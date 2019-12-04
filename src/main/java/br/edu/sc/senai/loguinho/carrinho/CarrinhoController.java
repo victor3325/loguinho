@@ -6,15 +6,11 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
-import br.edu.sc.senai.loguinho.anuncio.AnuncioProdutoEntity;
-
 @Controller
 final class CarrinhoController {
 
 	private final CarrinhoRepository carrinhoRepository;
 
-	
-	
 	CarrinhoController(final CarrinhoRepository carrinhoRepository) {
 		this.carrinhoRepository = carrinhoRepository;
 	}
@@ -25,7 +21,7 @@ final class CarrinhoController {
 		carrinhoEntity.setValor_frete(carrinhoDTO.getValor_frete());
 		carrinhoEntity.setTotal_pedido(carrinhoDTO.getTotal_pedido());
 		carrinhoEntity.setQuantidade(carrinhoDTO.getQuantidade());
-		carrinhoEntity.setProduto(carrinhoDTO.getProduto());
+		carrinhoEntity.setProduto_id(carrinhoDTO.getProduto_id());
 	}
 
 	private static CarrinhoEntity toEntity(final CarrinhoDTO carrinhoDTO) {
@@ -34,8 +30,9 @@ final class CarrinhoController {
 		final double valor_frete = carrinhoDTO.getValor_frete();
 		final double total_pedido = carrinhoDTO.getTotal_pedido();
 		final int quantidade = carrinhoDTO.getQuantidade();
-		final AnuncioProdutoEntity produto = carrinhoDTO.getProduto();
-		return new CarrinhoEntity(id, valor_unitario,valor_frete, total_pedido, quantidade, produto);
+		final long produto_id = carrinhoDTO.getProduto_id();
+		return new CarrinhoEntity(id, valor_unitario,valor_frete, total_pedido, quantidade, produto_id);
+				
 	}
 
 	private static CarrinhoDTO toDTO(final CarrinhoEntity carrinhoEntity) {
@@ -45,8 +42,8 @@ final class CarrinhoController {
 		final double valor_frete = carrinhoEntity.getValor_frete();
 		final double total_pedido = carrinhoEntity.getTotal_pedido();
 		final int quantidade = carrinhoEntity.getQuantidade();
-		final AnuncioProdutoEntity produto = carrinhoEntity.getProduto();
-		return new CarrinhoDTO(id,valor_unitario, valor_frete, total_pedido, quantidade, produto);
+		final long produto_id = carrinhoEntity.getProduto_id();
+		return new CarrinhoDTO(id,valor_unitario, valor_frete, total_pedido, quantidade, produto_id);
 	}
 
 	/*private boolean isNotExistsProductByIdentifier(final Long id) {

@@ -1,28 +1,27 @@
 package br.edu.sc.senai.loguinho.carrinho;
 
-import br.edu.sc.senai.loguinho.anuncio.AnuncioProdutoEntity;
 
 public class CarrinhoDTO {
 	public static final CarrinhoDTO NULL_VALUE = new CarrinhoDTO(Long.valueOf(0), Double.valueOf(0.0),
-			Double.valueOf(0.0), Double.valueOf(0.0), Integer.valueOf(0) ,null);
+			Double.valueOf(0.0), Double.valueOf(0.0), Integer.valueOf(0) ,Long.valueOf(0));
 
 	private final long id;
 	private final double valor_unitario;
 	private final double valor_frete;
 	private final double total_pedido;
 	private final int quantidade;
-	private final AnuncioProdutoEntity produto;
+	private final long produto_id;
 
 	
 	public CarrinhoDTO(long id, double valor_unitario, double valor_frete, double total_pedido, int quantidade,
-			AnuncioProdutoEntity produto) {
+			long produto_id) {
 		super();
 		this.id = id;
 		this.valor_unitario = valor_unitario;
 		this.valor_frete = valor_frete;
 		this.total_pedido = total_pedido;
 		this.quantidade = quantidade;
-		this.produto = produto;
+		this.produto_id = produto_id;
 	}
 
 	public int getQuantidade() {
@@ -49,8 +48,8 @@ public class CarrinhoDTO {
 		return total_pedido;
 	}
 
-	public AnuncioProdutoEntity getProduto() {
-		return produto;
+	public long getProduto_id() {
+		return produto_id;
 	}
 
 }

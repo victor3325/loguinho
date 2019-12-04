@@ -6,9 +6,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
-import br.edu.sc.senai.loguinho.endereco.EnderecoEntity;
-import br.edu.sc.senai.loguinho.usuario.UsuarioEntity;
-
 @Controller
 public class PjuridicaController {
 	private final PjuridicaRepository pjRepository;
@@ -22,8 +19,9 @@ public class PjuridicaController {
 		pjEntity.setNome(pjDTO.getNome());
 		pjEntity.setResponsavel(pjDTO.getResponsavel());
 		pjEntity.setTelefone(pjDTO.getTelefone());
-		pjEntity.setEndereco(pjDTO.getEndereco());
-		pjEntity.setUsuario(pjDTO.getUsuario());
+		pjEntity.setCelular(pjDTO.getCelular());
+		pjEntity.setEndereco_id(pjDTO.getEndereco_id());
+		pjEntity.setUsuario_id(pjDTO.getUsuario_id());
 	
 	
 	}
@@ -35,9 +33,9 @@ public class PjuridicaController {
 		final String cnpj = pjDTO.getCnpj();
 		final String telefone = pjDTO.getTelefone();
 		final String celular = pjDTO.getCelular();
-		final EnderecoEntity endereco = pjDTO.getEndereco();
-		final UsuarioEntity usuario =pjDTO.getUsuario();
-		return new PjuridicaEntity(id, nome, responsavel, cnpj, telefone, celular,endereco,usuario);
+		final long endereco_id = pjDTO.getEndereco_id();
+		final long usuario_id =pjDTO.getUsuario_id();
+		return new PjuridicaEntity(id, nome, responsavel, cnpj, telefone, celular,endereco_id,usuario_id);
 	}
 
 	private static PessoaJuridicaDTO toDTO(final PjuridicaEntity pjEntity) {
@@ -47,9 +45,9 @@ public class PjuridicaController {
 		final String cnpj = pjEntity.getCnpj();
 		final String telefone = pjEntity.getTelefone();
 		final String celular = pjEntity.getCelular();
-		final EnderecoEntity endereco = pjEntity.getEndereco();
-		final UsuarioEntity usuario = pjEntity.getUsuario();
-		return new PessoaJuridicaDTO(id, nome, responsavel, cnpj, telefone, celular, endereco, usuario);
+		final long endereco_id = pjEntity.getEndereco_id();
+		final long usuario_id = pjEntity.getUsuario_id();
+		return new PessoaJuridicaDTO(id, nome, responsavel, cnpj, telefone, celular, endereco_id, usuario_id);
 	}
 
 	/*private boolean isNotExistsProductByIdentifier(final Long id) {

@@ -28,7 +28,7 @@ public class PjuridicaService{
 		Arrays.asList(PjuridicaService.Pj).forEach(dto ->this.pjController.insertPj(dto));
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/lista")
 	public java.util.List<PessoaJuridicaDTO> list(){
 		return this.pjController.getAllPj();
 	}

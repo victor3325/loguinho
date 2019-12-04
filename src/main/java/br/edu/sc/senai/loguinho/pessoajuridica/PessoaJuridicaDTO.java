@@ -1,10 +1,9 @@
 package br.edu.sc.senai.loguinho.pessoajuridica;
 
-import br.edu.sc.senai.loguinho.endereco.EnderecoEntity;
-import br.edu.sc.senai.loguinho.usuario.UsuarioEntity;
+
 
 public class PessoaJuridicaDTO {
-	public static final PessoaJuridicaDTO NULL_VALUE = new PessoaJuridicaDTO(Long.valueOf(0), "", "", "", "", "", null,null);
+	public static final PessoaJuridicaDTO NULL_VALUE = new PessoaJuridicaDTO(Long.valueOf(0), "", "", "", "", "", Long.valueOf(0),Long.valueOf(0));
 	
 	private final long id;	
 	private final String nome;
@@ -12,10 +11,10 @@ public class PessoaJuridicaDTO {
 	private final String cnpj;
 	private final String telefone;
 	private final String celular;
-	private final EnderecoEntity endereco;
-	private final UsuarioEntity usuario;
+	private final long endereco_id;
+	private final long usuario_id;
 	public PessoaJuridicaDTO(long id, String nome, String responsavel, String cnpj, String telefone, String celular,
-			EnderecoEntity endereco, UsuarioEntity usuario) {
+			long endereco_id, long usuario_id) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -23,8 +22,8 @@ public class PessoaJuridicaDTO {
 		this.cnpj = cnpj;
 		this.telefone = telefone;
 		this.celular = celular;
-		this.endereco = endereco;
-		this.usuario = usuario;
+		this.endereco_id = endereco_id;
+		this.usuario_id = usuario_id;
 	}
 	public static PessoaJuridicaDTO getNullValue() {
 		return NULL_VALUE;
@@ -47,12 +46,11 @@ public class PessoaJuridicaDTO {
 	public String getCelular() {
 		return celular;
 	}
-	public EnderecoEntity getEndereco() {
-		return endereco;
+	public long getEndereco_id() {
+		return endereco_id;
 	}
-	public UsuarioEntity getUsuario() {
-		return usuario;
-	}
-	
+	public long getUsuario_id() {
+		return usuario_id;
+	}	
 	
 }

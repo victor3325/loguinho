@@ -6,9 +6,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 
-import br.edu.sc.senai.loguinho.endereco.EnderecoEntity;
-import br.edu.sc.senai.loguinho.usuario.UsuarioEntity;
-
 @Controller
 final class PfisicaController {
 
@@ -24,8 +21,8 @@ final class PfisicaController {
 		pfEntity.setSobrenome(pfDTO.getSobrenome());
 		pfEntity.setTelefone(pfDTO.getTelefone());
 		pfEntity.setCelular(pfDTO.getCelular());
-		pfEntity.setEndereco(pfDTO.getEndereco());
-		pfEntity.setUsuario(pfDTO.getUsuario());
+		pfEntity.setEndereco_id(pfDTO.getEndereco_id());
+		pfEntity.setUsuario_id(pfDTO.getUsuario_id());
 
 	}
 	
@@ -37,10 +34,10 @@ final class PfisicaController {
 		final String sobrenome = pfDTO.getSobrenome();
 		final String telefone = pfDTO.getTelefone();
 		final String celular = pfDTO.getCelular();
-		final EnderecoEntity endereco = pfDTO.getEndereco();
-		final UsuarioEntity usuario = pfDTO.getUsuario();
+		final long endereco_id = pfDTO.getEndereco_id();
+		final long usuario_id = pfDTO.getUsuario_id();
 
-		return new PfisicaEntity(id, cpf, nome, sobrenome, telefone, celular, endereco,usuario);
+		return new PfisicaEntity(id, cpf, nome, sobrenome, telefone, celular, endereco_id,usuario_id);
 	}
 	
 	private static PessoaFisicaDTO toDTO(final PfisicaEntity pfEntity) {
@@ -51,9 +48,9 @@ final class PfisicaController {
 		final String sobrenome = pfEntity.getSobrenome();
 		final String telefone = pfEntity.getTelefone();
 		final String celular = pfEntity.getCelular();
-		final EnderecoEntity endereco = pfEntity.getEndereco();
-		final UsuarioEntity usuario = pfEntity.getUsuario();
-		return new PessoaFisicaDTO(id, cpf, nome, sobrenome, telefone, celular, endereco,usuario);
+		final long endereco_id = pfEntity.getEndereco_id();
+		final long usuario_id = pfEntity.getUsuario_id();
+		return new PessoaFisicaDTO(id, cpf, nome, sobrenome, telefone, celular, endereco_id,usuario_id);
 		
 	}
 	

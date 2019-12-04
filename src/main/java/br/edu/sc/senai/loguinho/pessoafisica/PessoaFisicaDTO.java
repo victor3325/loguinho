@@ -1,11 +1,9 @@
 package br.edu.sc.senai.loguinho.pessoafisica;
 
-import br.edu.sc.senai.loguinho.endereco.EnderecoEntity;
-import br.edu.sc.senai.loguinho.usuario.UsuarioEntity;
 
 public class PessoaFisicaDTO {
 	
-	public static final PessoaFisicaDTO NULL_VALUE = new PessoaFisicaDTO(Long.valueOf(0), "", "", "", "", "",null,null);
+	public static final PessoaFisicaDTO NULL_VALUE = new PessoaFisicaDTO(Long.valueOf(0), "", "", "", "", "",Long.valueOf(0),Long.valueOf(0));
 	
 	private final long id;	
 	private final String nome;
@@ -13,10 +11,10 @@ public class PessoaFisicaDTO {
 	private final String cpf;
 	private final String telefone;
 	private final String celular;
-	private EnderecoEntity endereco;
-	private UsuarioEntity usuario;
+	private final long endereco_id;
+	private final long usuario_id;
 	public PessoaFisicaDTO(long id, String nome, String sobrenome, String cpf, String telefone, String celular,
-			EnderecoEntity endereco, UsuarioEntity usuario) {
+			long endereco_id, long usuario_id) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -24,20 +22,8 @@ public class PessoaFisicaDTO {
 		this.cpf = cpf;
 		this.telefone = telefone;
 		this.celular = celular;
-		this.endereco = endereco;
-		this.usuario = usuario;
-	}
-	public EnderecoEntity getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(EnderecoEntity endereco) {
-		this.endereco = endereco;
-	}
-	public UsuarioEntity getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(UsuarioEntity usuario) {
-		this.usuario = usuario;
+		this.endereco_id = endereco_id;
+		this.usuario_id = usuario_id;
 	}
 	public static PessoaFisicaDTO getNullValue() {
 		return NULL_VALUE;
@@ -59,6 +45,12 @@ public class PessoaFisicaDTO {
 	}
 	public String getCelular() {
 		return celular;
+	}
+	public long getEndereco_id() {
+		return endereco_id;
+	}
+	public long getUsuario_id() {
+		return usuario_id;
 	}
 	
 }
