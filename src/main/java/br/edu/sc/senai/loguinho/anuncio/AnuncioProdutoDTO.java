@@ -2,7 +2,7 @@ package br.edu.sc.senai.loguinho.anuncio;
 
 public class AnuncioProdutoDTO {
 		
-	public static final AnuncioProdutoDTO NULL_VALUE = new AnuncioProdutoDTO(Long.valueOf(0), "", Double.valueOf(0.0), Integer.valueOf(0),"", "", "", "", "");
+	public static final AnuncioProdutoDTO NULL_VALUE = new AnuncioProdutoDTO(Long.valueOf(0), "", Double.valueOf(0.0), Integer.valueOf(0),"", "", "", "");
 	
 		private final long id;
 		private final String nome;
@@ -10,13 +10,12 @@ public class AnuncioProdutoDTO {
 	    private final int quantidade;
 	    private final String categoria;
 	    private final String moeda;
-	    private final String entrega;
 	    private final String descricao;
 	    private final String imagem_produto;
 
 	    
 		public AnuncioProdutoDTO(long id, String nome, double preco_unit, int quantidade, String categoria,
-				String moeda, String entrega, String descricao, String imagem_produto) {
+				String moeda, String descricao, String imagem_produto) {
 			super();
 			this.id = id;
 			this.nome = nome;
@@ -24,7 +23,6 @@ public class AnuncioProdutoDTO {
 			this.quantidade = quantidade;
 			this.categoria = categoria;
 			this.moeda = moeda;
-			this.entrega = entrega;
 			this.descricao = descricao;
 			this.imagem_produto = imagem_produto;
 			
@@ -50,9 +48,7 @@ public class AnuncioProdutoDTO {
 		public String getMoeda() {
 			return moeda;
 		}
-		public String getEntrega() {
-			return entrega;
-		}
+		
 		public String getDescricao() {
 			return descricao;
 		}

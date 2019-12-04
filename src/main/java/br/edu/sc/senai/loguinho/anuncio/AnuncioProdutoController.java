@@ -24,7 +24,7 @@ public class AnuncioProdutoController {
 		anuncioEntity.setQuantidade(anuncioDTO.getQuantidade());
 		anuncioEntity.setMoeda(anuncioDTO.getMoeda());
 		anuncioEntity.setDescricao(anuncioDTO.getDescricao());
-		anuncioEntity.setEntrega(anuncioDTO.getEntrega());
+		
 		anuncioEntity.setImagem_produto(anuncioDTO.getImagem_produto());
 		
 	
@@ -37,11 +37,10 @@ public class AnuncioProdutoController {
 	    final int quantidade = anuncioDTO.getQuantidade();
 	    final String categoria = anuncioDTO.getCategoria();
 	    final String moeda = anuncioDTO.getMoeda();
-	    final String entrega = anuncioDTO.getEntrega();
 	    final String descricao = anuncioDTO.getDescricao();
 	    final String imagem_produto = anuncioDTO.getImagem_produto();
 
-	    return new AnuncioProdutoEntity(id, nome, preco_unit, quantidade, categoria, moeda, entrega, descricao, imagem_produto);
+	    return new AnuncioProdutoEntity(id, nome, preco_unit, quantidade, categoria, moeda, descricao, imagem_produto);
 
 	}
 
@@ -52,11 +51,11 @@ public class AnuncioProdutoController {
 	    final int quantidade = anuncioEntity.getQuantidade();
 	    final String categoria = anuncioEntity.getCategoria();
 	    final String moeda = anuncioEntity.getMoeda();
-	    final String entrega = anuncioEntity.getEntrega();
+	    
 	    final String descricao = anuncioEntity.getDescricao();
 	    final String imagem_produto = anuncioEntity.getImagem_produto();
 	    
-	    return new AnuncioProdutoDTO(id, nome, preco_unit, quantidade, categoria, moeda, entrega, descricao, imagem_produto);
+	    return new AnuncioProdutoDTO(id, nome, preco_unit, quantidade, categoria, moeda, descricao, imagem_produto);
 		
 	}
 

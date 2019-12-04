@@ -47,8 +47,7 @@ public class PessoaEntity implements Serializable{
 	private String rua;
 	@Column(name = "cep")
 	private String cep;
-	@OneToMany(mappedBy = "pessoa")
-	private List<AnuncioProdutoEntity> produtos;
+	
 	public PessoaEntity(long id, String nome, String sobrenome, String cpf, String nome_empresa, String responsavel,
 			String cnpj, String telefone, String celular, String pais, String estado, String cidade, String bairro,
 			String rua, String cep) {

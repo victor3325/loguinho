@@ -36,20 +36,15 @@ public class AnuncioProdutoEntity implements Serializable{
 	@Column
     private String moeda;
 	@Column
-    private String entrega;
-	@Column
     private String descricao;
 	@Column
     private String imagem_produto;
-	@ManyToOne
-	private PessoaEntity pessoa;
-	
-		
+			
 	protected AnuncioProdutoEntity(){
 		
 	}
 	public AnuncioProdutoEntity(long id, String nome, double preco_unit, int quantidade, String categoria, String moeda,
-			String entrega, String descricao, String imagem_produto) {
+			 String descricao, String imagem_produto) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -57,7 +52,7 @@ public class AnuncioProdutoEntity implements Serializable{
 		this.quantidade = quantidade;
 		this.categoria = categoria;
 		this.moeda = moeda;
-		this.entrega = entrega;
+		
 		this.descricao = descricao;
 		this.imagem_produto = imagem_produto;
 	}
@@ -97,12 +92,7 @@ public class AnuncioProdutoEntity implements Serializable{
 	public void setMoeda(String moeda) {
 		this.moeda = moeda;
 	}
-	public String getEntrega() {
-		return entrega;
-	}
-	public void setEntrega(String entrega) {
-		this.entrega = entrega;
-	}
+	
 	public String getDescricao() {
 		return descricao;
 	}
