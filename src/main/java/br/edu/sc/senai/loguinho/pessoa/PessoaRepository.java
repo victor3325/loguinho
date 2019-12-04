@@ -1,9 +1,9 @@
-package br.edu.sc.senai.loguinho.endereco;
+package br.edu.sc.senai.loguinho.pessoa;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-interface EnderecoRepository extends CrudRepository<EnderecoEntity, Long>{
-
+interface PessoaRepository extends CrudRepository<PessoaEntity,Long>{
+	
 }
