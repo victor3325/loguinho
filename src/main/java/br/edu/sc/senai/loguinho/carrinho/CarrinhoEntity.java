@@ -2,7 +2,6 @@ package br.edu.sc.senai.loguinho.carrinho;
 
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,7 +36,7 @@ public class CarrinhoEntity {
 	private int quantidade;
 	@Column(name="produto_id")
 	private long produto_id;
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name ="produto_id",nullable = false,updatable = false,insertable = false)
 	private AnuncioProdutoEntity produto;
 	
