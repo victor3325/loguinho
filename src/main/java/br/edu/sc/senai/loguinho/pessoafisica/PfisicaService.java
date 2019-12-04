@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class PfisicaService {
 	
 	private static final PessoaFisicaDTO [] Pf = new PessoaFisicaDTO[]{
-			
+			new PessoaFisicaDTO(1, "Marcos", "Almeida", "654-564-652-84", "(047)3333-2222", "(048)98888-7777", '1', '1'),
+			new PessoaFisicaDTO(2, "Luiza", "Almeida", "214-527-852-10", "(049)3241-1422", "(048)98999-4557", '2', '2'),
 	};
 
 	private final PfisicaController pfController;
@@ -31,12 +32,12 @@ public class PfisicaService {
 		Arrays.asList(PfisicaService.Pf).forEach(dto ->this.pfController.insertPessoaFisica(dto));
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/lista")
 	public java.util.List<PessoaFisicaDTO> list(){
 		return this.pfController.getAllPessoaFisica();
 	}
 		
-	@GetMapping("/{id}/details") 
+	@GetMapping("/{id}") 
 	public ResponseEntity<PessoaFisicaDTO> getpf (@PathVariable final Long id){
 		final PessoaFisicaDTO DTO = this.pfController.getPessoaFisica(id);
 		if(DTO.equals(PessoaFisicaDTO.NULL_VALUE)){

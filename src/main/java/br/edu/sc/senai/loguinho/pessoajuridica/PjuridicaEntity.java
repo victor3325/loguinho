@@ -1,6 +1,8 @@
 package br.edu.sc.senai.loguinho.pessoajuridica;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,26 +19,27 @@ import br.edu.sc.senai.loguinho.usuario.UsuarioEntity;
 
 @Entity
 @Table(name = "PessoaJuridica")
-public class PjuridicaEntity {
+public class PjuridicaEntity implements Serializable{
+	
+	private static final long serialVersionUID = 4391164751402917205L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;	
 	@NotEmpty
-	@Column(length = 10)
+	@Column
 	private String nome;
 	@NotEmpty
-	@Column(length = 10)
+	@Column
 	private String responsavel;
 	@NotEmpty
-	@Column(length = 15)
-	@CNPJ
+	@Column
 	private String cnpj;
 	@NotEmpty
-	@Column(length = 15)
+	@Column
 	private String telefone;
 	@NotEmpty
-	@Column(length = 15)
+	@Column
 	private String celular;
 	@Column(name="endereco_id",insertable = false,updatable = false,nullable = false)
 	private long endereco_id;

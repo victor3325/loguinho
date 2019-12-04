@@ -29,28 +29,28 @@ final class PfisicaController {
 	private static PfisicaEntity toEntity(final PessoaFisicaDTO pfDTO) {
 
 		final long id = pfDTO.getId();
-		final String cpf = pfDTO.getCpf();
 		final String nome = pfDTO.getNome();
 		final String sobrenome = pfDTO.getSobrenome();
+		final String cpf = pfDTO.getCpf();
 		final String telefone = pfDTO.getTelefone();
 		final String celular = pfDTO.getCelular();
 		final long endereco_id = pfDTO.getEndereco_id();
 		final long usuario_id = pfDTO.getUsuario_id();
 
-		return new PfisicaEntity(id, cpf, nome, sobrenome, telefone, celular, endereco_id,usuario_id);
+		return new PfisicaEntity(id, nome, sobrenome, cpf, telefone, celular, endereco_id,usuario_id);
 	}
 	
 	private static PessoaFisicaDTO toDTO(final PfisicaEntity pfEntity) {
 		
 		final long id = pfEntity.getId();
-		final String cpf = pfEntity.getCpf();
 		final String nome = pfEntity.getNome();
 		final String sobrenome = pfEntity.getSobrenome();
+		final String cpf = pfEntity.getCpf();
 		final String telefone = pfEntity.getTelefone();
 		final String celular = pfEntity.getCelular();
 		final long endereco_id = pfEntity.getEndereco_id();
 		final long usuario_id = pfEntity.getUsuario_id();
-		return new PessoaFisicaDTO(id, cpf, nome, sobrenome, telefone, celular, endereco_id,usuario_id);
+		return new PessoaFisicaDTO(id, nome, sobrenome, cpf, telefone, celular, endereco_id,usuario_id);
 		
 	}
 	

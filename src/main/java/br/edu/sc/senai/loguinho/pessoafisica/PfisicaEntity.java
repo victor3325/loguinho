@@ -1,6 +1,8 @@
 package br.edu.sc.senai.loguinho.pessoafisica;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,31 +17,33 @@ import br.edu.sc.senai.loguinho.usuario.UsuarioEntity;
 
 @Entity
 @Table(name = "PessoaFisica")
-public class PfisicaEntity {
+public class PfisicaEntity implements Serializable{
+	
+	private static final long serialVersionUID = 4391164751402917205L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;	
 	@NotEmpty
-	@Column(length = 10)
+	@Column
 	private String nome;
 	@NotEmpty
-	@Column(length = 12)
+	@Column
 	private String sobrenome;
 	@NotEmpty
-	@Column(length = 15)
+	@Column
 	private String cpf;
 	@NotEmpty
-	@Column(length = 15)
+	@Column
 	private String telefone;
 	@NotEmpty
 	@Column(length = 15)
 	private String celular;
-	@Column(name="endereco_id",insertable = false,updatable = false,nullable = false)
+	@Column(insertable = false,updatable = false)
 	private long endereco_id;
 	@OneToOne
 	private EnderecoEntity endereco;
-	@Column(name="usuario_id",insertable = false,updatable = false,nullable = false)
+	@Column(insertable = false,updatable = false)
 	private long usuario_id;
 	@OneToOne
 	private UsuarioEntity usuario;

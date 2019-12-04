@@ -29,12 +29,12 @@ public class CarrinhoService {
 		Arrays.asList(CarrinhoService.Carr).forEach(dto ->this.carrinhoController.insertCarrinho(dto));
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/lista")
 	public java.util.List<CarrinhoDTO> list(){
 		return this.carrinhoController.getAllCarrinho();
 	}
 		
-	@GetMapping("/{id}/details") 
+	@GetMapping("/{id}") 
 	public ResponseEntity<CarrinhoDTO> getCarrinho (@PathVariable final Long id){
 		final CarrinhoDTO carrinhoDTO = this.carrinhoController.getCarrinho(id);
 		if(carrinhoDTO.equals(CarrinhoDTO.NULL_VALUE)){

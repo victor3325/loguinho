@@ -2,6 +2,8 @@ package br.edu.sc.senai.loguinho.carrinho;
 
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,7 +19,9 @@ import br.edu.sc.senai.loguinho.anuncio.AnuncioProdutoEntity;
 
 @Entity
 @Table(name = "Carrinho")
-public class CarrinhoEntity {
+public class CarrinhoEntity implements Serializable{
+	
+	private static final long serialVersionUID = 4391164751402917205L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

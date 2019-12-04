@@ -1,6 +1,8 @@
 package br.edu.sc.senai.loguinho.usuario;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,9 @@ import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "Usuario")
-public class UsuarioEntity {
+public class UsuarioEntity implements Serializable{
+	
+	private static final long serialVersionUID = 4391164751402917205L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

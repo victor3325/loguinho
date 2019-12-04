@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class EnderecoService {
 	
 	private static final EnderecoDTO[] Endereco = new EnderecoDTO[] {
+			new EnderecoDTO(1, "Brasil", "Santa Catarina", "Blumenau", "Centro", "XV de Novembro", "00000-000"),
+			new EnderecoDTO(2, "Brasil", "Santa Catarina", "Blumenau", "Centro", "XV de Novembro", "00000-000")
 	};
 	
 	private final EnderecoController enderecoController;
@@ -28,12 +30,12 @@ public class EnderecoService {
 		Arrays.asList(EnderecoService.Endereco).forEach(dto ->this.enderecoController.insertEndereco(dto));
 	}
 
-	@GetMapping("/list")
+	@GetMapping("/lista")
 	public java.util.List<EnderecoDTO> list(){
 		return this.enderecoController.getAllEndereco();
 	}
 		
-	@GetMapping("/{id}/details") 
+	@GetMapping("/{id}") 
 	public ResponseEntity<EnderecoDTO> getEndereco (@PathVariable final Long id){
 		final EnderecoDTO enderecoDTO = this.enderecoController.getEndereco(id);
 		if(enderecoDTO.equals(EnderecoDTO.NULL_VALUE)){

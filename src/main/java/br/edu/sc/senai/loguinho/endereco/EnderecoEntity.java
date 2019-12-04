@@ -2,18 +2,27 @@ package br.edu.sc.senai.loguinho.endereco;
 
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import antlr.collections.List;
+import br.edu.sc.senai.loguinho.usuario.UsuarioEntity;
 
 
 
 @Entity
 @Table(name="Endereco")
-public class EnderecoEntity {
+public class EnderecoEntity implements Serializable{
+	
+	private static final long serialVersionUID = 4391164751402917205L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -29,7 +38,6 @@ public class EnderecoEntity {
 	private String rua;
 	@Column
 	private String cep;
-	
 	protected EnderecoEntity() {
 		
 	}

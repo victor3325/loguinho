@@ -33,7 +33,7 @@ public class PjuridicaService{
 		return this.pjController.getAllPj();
 	}
 		
-	@GetMapping("/{id}/details") 
+	@GetMapping("/{id}") 
 	public ResponseEntity<PessoaJuridicaDTO> getPj (@PathVariable final Long id){
 		final PessoaJuridicaDTO DTO = this.pjController.getPj(id);
 		if(DTO.equals(PessoaJuridicaDTO.NULL_VALUE)){

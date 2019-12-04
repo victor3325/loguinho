@@ -20,6 +20,8 @@ public class AnuncioProdutoService {
 	
 			
 	private static final AnuncioProdutoDTO[] Anuncio = new AnuncioProdutoDTO[] {
+			new AnuncioProdutoDTO(1, "Teclado Metalico", 42.50, 10, "Teclados", "Real", "Sedex", "Pesado e barulhento", "imagem nao adicionada"),
+			new AnuncioProdutoDTO(2, "Mouse Bolinha", 42.50, 10, "Mouse", "Real", "Sedex", "Velho e Inutil", "imagem nao adicionada")
 	};
 	
 	private final AnuncioProdutoController anuncioController;

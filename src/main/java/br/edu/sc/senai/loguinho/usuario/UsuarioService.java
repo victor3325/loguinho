@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioService {
 
 	private static final UsuarioDTO[] Usuario = new UsuarioDTO[] {
+			new UsuarioDTO(1, "marcos", "marcos@gmail.com", "senha123"),
+			new UsuarioDTO(2, "luiza", "luiza@gmail.com", "senha123"),
 	};
 	
 	private final UsuarioController usuarioController;
@@ -32,7 +34,7 @@ public class UsuarioService {
 		return this.usuarioController.getAllUsuario();
 	}
 		
-	@GetMapping("/{id}/details") 
+	@GetMapping("/{id}") 
 	public ResponseEntity<UsuarioDTO> getUsuario (@PathVariable final Long id){
 		final UsuarioDTO usuarioDTO = this.usuarioController.getUsuario(id);
 		if(usuarioDTO.equals(UsuarioDTO.NULL_VALUE)){

@@ -1,6 +1,8 @@
 package br.edu.sc.senai.loguinho.anuncio;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Anuncio")
-public class AnuncioProdutoEntity  {
+public class AnuncioProdutoEntity implements Serializable{
+	
+	private static final long serialVersionUID = 4391164751402917205L;
 	
 
 	@Id
